@@ -552,6 +552,15 @@
     refractor "^4.0.0"
     tslib "^2.4.0"
 
+"@milkdown/plugin-tooltip@^6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-tooltip/-/plugin-tooltip-6.5.4.tgz#9d8101dd1dd557b50421b8a1cd4366b5d683789b"
+  integrity sha512-GwEhssArwGy/v5X9RLVJS+qEGqKW0j4UGSZkCJ43bi9daMKuvdTZyq6ho/v8N9r5MnEpmpRT35wrkS9Zble+hA==
+  dependencies:
+    "@milkdown/exception" "6.5.4"
+    "@milkdown/utils" "6.5.4"
+    tslib "^2.4.0"
+
 "@milkdown/plugin-upload@^6.5.3":
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-upload/-/plugin-upload-6.5.3.tgz#da73f3829792f5b1bc75ea2c03237ae67837f714"

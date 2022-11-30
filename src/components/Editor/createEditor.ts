@@ -15,9 +15,12 @@ import { menuConfig } from "./Editor.config";
 import { EditorInfo } from "@milkdown/react";
 import { upload } from '@milkdown/plugin-upload';
 import { history } from '@milkdown/plugin-history';
+import { tooltip } from '@milkdown/plugin-tooltip';
 import UndoIcon from '@mui/icons-material/Undo';
+import ReplayIcon from '@mui/icons-material/Replay';
+import createIcon from '../../icons'
 
-console.log(UndoIcon.type.render().props.children.props.d);
+console.log((UndoIcon as any).type.render().props.children.props.d);
 
 export const createEditor = ({
   root,
@@ -50,8 +53,9 @@ export const createEditor = ({
 
       manager.set(ThemeIcon, (icon) => {
         if(icon === "my-custom"){
-          const icon = document.createElement('div');
-          icon.innerHTML = `<svg width="24" height="24"><path d="${UndoIcon.type.render().props.children.props.d}" fill="white" /></svg>`;
+          const icon = document.createElement('span');
+          // icon.innerHTML = `<svg width="24" height="24"><path d="${(UndoIcon as any).type.render().props.children.props.d}" fill="white" /></svg>`;
+            icon.innerHTML = createIcon(ReplayIcon);
           return {
             dom: icon,
             label: 'my icon'
@@ -64,6 +68,7 @@ export const createEditor = ({
       .use(history)
     .use(listener)
     .use(emoji)
+      .use(tooltip)
     .use(
       menu.configure(menuPlugin, {
         config: menuConfig as (Config | ((ctx: Ctx) => Config) | undefined)

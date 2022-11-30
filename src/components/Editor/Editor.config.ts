@@ -111,3 +111,7 @@ export const menuConfig = [
   //domyślna konfiguracja
   // ...defaultConfig
 ];
+
+export const iconsConfig = [
+
+]

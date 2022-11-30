@@ -17,6 +17,7 @@
     "@milkdown/plugin-listener": "^6.5.2",
     "@milkdown/plugin-menu": "^6.5.2",
     "@milkdown/plugin-prism": "^6.5.2",
+    "@milkdown/plugin-tooltip": "^6.5.4",
     "@milkdown/plugin-upload": "^6.5.3",
     "@milkdown/preset-commonmark": "^6.5.2",
     "@milkdown/preset-gfm": "^6.5.2",
