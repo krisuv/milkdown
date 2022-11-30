@@ -18,7 +18,7 @@ import { history } from '@milkdown/plugin-history';
 import { tooltip } from '@milkdown/plugin-tooltip';
 import UndoIcon from '@mui/icons-material/Undo';
 import ReplayIcon from '@mui/icons-material/Replay';
-import createIcon from '../../icons'
+import {createIcon, changeDefaultIcon} from '../../icons'
 
 console.log((UndoIcon as any).type.render().props.children.props.d);
 
