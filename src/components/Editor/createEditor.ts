@@ -14,6 +14,7 @@ import { Config, menu, menuPlugin } from "@milkdown/plugin-menu";
 import { menuConfig } from "./Editor.config";
 import { EditorInfo } from "@milkdown/react";
 import { upload } from '@milkdown/plugin-upload';
+import { history } from '@milkdown/plugin-history';
 
 export const createEditor = ({
   root,
@@ -57,6 +58,7 @@ export const createEditor = ({
       });
     }))
     .use(gfm)
+      .use(history)
     .use(listener)
     .use(emoji)
     .use(

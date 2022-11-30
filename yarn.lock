@@ -496,6 +496,13 @@
   dependencies:
     tslib "^2.4.0"
 
+"@milkdown/exception@6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@milkdown/exception/-/exception-6.5.4.tgz#92810e0665d00684e997a715709276b6af042dbc"
+  integrity sha512-ZBiGT7iEocwsAY2zvY0Ft+xO2RKgY9VbEiu9tk4l3sZP3JNAPmVgssIjQhJL6eEln53oPel48/fXzs2NvyXSFQ==
+  dependencies:
+    tslib "^2.4.0"
+
 "@milkdown/plugin-emoji@^6.5.2":
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-emoji/-/plugin-emoji-6.5.2.tgz#cb2898c3ee1bf7ee1b09c252eacaeae91ee63c99"
@@ -511,12 +518,12 @@
     twemoji "^14.0.1"
     unist-util-visit "^4.0.0"
 
-"@milkdown/plugin-history@^6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@milkdown/plugin-history/-/plugin-history-6.5.3.tgz#49bc36241d66a493315c7b4fe25f7ca591742abc"
-  integrity sha512-nVyS2y8raorQuCbet4v/X3xNm8cAxsq8tJiPlGjs1AqOBGsHBuJ7anbXmLc9TogYEs7V3XXoR+gUaVCO+IkogQ==
+"@milkdown/plugin-history@^6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-history/-/plugin-history-6.5.4.tgz#995f68d66f27b20ca6771f3b7f68ca4c471f8dd9"
+  integrity sha512-pffeubQsi60Ypg0w9rU9TuASwjzp/JgngKML4Jhjif0U4R8odwuGu6PIPyhsMKJnZekCKcJjT06gAapd0SYH2A==
   dependencies:
-    "@milkdown/utils" "6.5.3"
+    "@milkdown/utils" "6.5.4"
     tslib "^2.4.0"
 
 "@milkdown/plugin-listener@^6.5.2":
@@ -647,6 +654,15 @@
   integrity sha512-02UIr39ZgwL4kcfj04ma3neQNJkHgmMTPqatsOgw6fvKTt5BaM12UpMi22Cglzul1ISbKxinrx35HGnQLMpqyQ==
   dependencies:
     "@milkdown/exception" "6.5.3"
+    nanoid "^4.0.0"
+    tslib "^2.4.0"
+
+"@milkdown/utils@6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@milkdown/utils/-/utils-6.5.4.tgz#b71a3e457020aff955271f693d09c2a7c6e01579"
+  integrity sha512-2kH6lT3g8fMgCwZu8+fX3o5VYQeLHe3WxxGXzprtmtfI7SIrHNUXkHEayiiLRRX2MZS7e9pHpjJaaSrEYY1EIA==
+  dependencies:
+    "@milkdown/exception" "6.5.4"
     nanoid "^4.0.0"
     tslib "^2.4.0"
 
