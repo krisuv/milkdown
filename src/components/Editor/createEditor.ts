@@ -15,6 +15,9 @@ import { menuConfig } from "./Editor.config";
 import { EditorInfo } from "@milkdown/react";
 import { upload } from '@milkdown/plugin-upload';
 import { history } from '@milkdown/plugin-history';
+import UndoIcon from '@mui/icons-material/Undo';
+
+console.log(UndoIcon.type.render().props.children.props.d);
 
 export const createEditor = ({
   root,
@@ -48,7 +51,7 @@ export const createEditor = ({
       manager.set(ThemeIcon, (icon) => {
         if(icon === "my-custom"){
           const icon = document.createElement('div');
-          icon.innerText = '💲';
+          icon.innerHTML = `<svg width="24" height="24"><path d="${UndoIcon.type.render().props.children.props.d}" fill="white" /></svg>`;
           return {
             dom: icon,
             label: 'my icon'
