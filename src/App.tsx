@@ -1,8 +1,19 @@
+import { Button, createMuiTheme, ThemeProvider } from '@mui/material';
 import { useCallback, useState,useEffect } from 'react';
-import { Wrapper } from './assets/App.styles';
+import {Header, Wrapper, DataButton } from './assets/App.styles';
 import Milkdown from './components/Editor';
-
 import './styles.css';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#F47F2E',
+            light: '#f59756',
+            dark: '#d1651b',
+            contrastText: 'white'
+        }
+    }
+})
 
 const App = (): JSX.Element => {
   const [content, setContent] = useState('');
@@ -14,10 +25,13 @@ const App = (): JSX.Element => {
   }, [content]);
 
   return (
-    <Wrapper>
-      <h1>Test</h1>
-      <Milkdown onChange={onTextChange} value={content} spellcheck={false} />
-    </Wrapper>
+    <ThemeProvider theme={theme}>
+        <Wrapper>
+        <Header variant='h1'>Milkdown POC test</Header>
+        <Milkdown onChange={onTextChange} value={content} spellcheck={false} />
+          <DataButton variant='contained' color='primary'>Download HTML</DataButton>
+        </Wrapper>
+    </ThemeProvider>
   );
 };
 

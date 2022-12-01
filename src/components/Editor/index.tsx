@@ -9,32 +9,62 @@ import { getHTML } from '@milkdown/utils';
 
 const useStyles = makeStyles({
   root: {
-    "& .menu-selector-wrapper": {
-      position: "relative"
+    "& .milkdown .editor": {
+      backgroundColor: '#1f1f1f',
+      minHeight: '600px',
+      padding: '16px 24px'
     },
     "& .milkdown-menu": {
-      overflowX: "visible",
-      overflowY: "visible"
-    },
-    "& .milkdown .editor": {
-      padding: "1px 10px 30px",
-      minHeight: 200
+      backgroundColor: '#1f1f1f',
+      '& button': {
+        backgroundColor: '#1f1f1f',
+      }
     },
     "& .milkdown .editor p": {
-      margin: "10px 0"
+      margin: "8px 0"
     },
-    "& .milkdown .editor .heading": {
-      margin: "0 0 20px"
-    }
   }
+  // root: {
+  //   "& .menu-selector-wrapper": {
+  //     position: "relative",
+  //   },
+  //   "& .milkdown-menu": {
+  //     overflowX: "visible",
+  //     overflowY: "visible"
+  //   },
+  //   "& .milkdown .editor": {
+  //     // overflow: 'scroll',
+  //     padding: "1px 10px 30px",
+  //     minHeight: '200px'
+  //   },
+  //   "& .milkdown .editor p": {
+  //     margin: "10px 0"
+  //   },
+  //   "& .milkdown .editor .heading": {
+  //     margin: "0 0 20px"
+  //   }
+  // }
 });
 
 const Milkdown = ({ onChange, value, editable, spellcheck }: {[key: string]: any}): JSX.Element => {
   const classes = useStyles();
-  const [contentHTML, setHTML] = useState<string | undefined>();
+  const [contentHTML, setContentHTML] = useState<string | undefined>();
+
+  // useEffect(() => {
+  //   setHTML(editor.getInstance()?.action(getHTML()));
+  // }, [value]);
+  //
+  // useEffect(() => {
+  //   console.log(contentHTML);
+  // }, [contentHTML]);
 
   useEffect(() => {
-    setHTML(editor.getInstance()?.action(getHTML()));
+    try {
+      setContentHTML(editor.getInstance()?.action(getHTML()));
+    }
+    catch (err) {
+      console.log(err);
+    }
   }, [value]);
 
   useEffect(() => {
@@ -51,9 +81,9 @@ const Milkdown = ({ onChange, value, editable, spellcheck }: {[key: string]: any
     });
   });
 
-  // console.log(editor.getDom());
-  // console.log(editor.getInstance()?.action(getHTML()));
-  // console.log(editor);
+  console.log(editor.getDom());
+  console.log(editor.getInstance()?.action(getHTML()));
+  console.log(editor);
 
   return (
     <Box className= { classes.root } >
