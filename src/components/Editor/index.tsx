@@ -46,7 +46,7 @@ const useStyles = makeStyles({
   // }
 });
 
-const Milkdown = ({ onChange, value, editable, spellcheck }: {[key: string]: any}): JSX.Element => {
+const Milkdown = ({ onChange, value, setHTML, editable, spellcheck }: {[key: string]: any}): JSX.Element => {
   const classes = useStyles();
   const [contentHTML, setContentHTML] = useState<string | undefined>();
 
@@ -61,6 +61,7 @@ const Milkdown = ({ onChange, value, editable, spellcheck }: {[key: string]: any
   useEffect(() => {
     try {
       setContentHTML(editor.getInstance()?.action(getHTML()));
+      setHTML(editor.getInstance()?.action(getHTML()));
     }
     catch (err) {
       console.log(err);

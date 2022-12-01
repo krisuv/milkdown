@@ -17,6 +17,7 @@ const theme = createMuiTheme({
 
 const App = (): JSX.Element => {
   const [content, setContent] = useState('');
+  const [html, setHTML] = useState<string | undefined>();
 
   const onTextChange = useCallback((ev: string) => setContent(ev), []);
 
@@ -24,12 +25,16 @@ const App = (): JSX.Element => {
       console.log(content)
   }, [content]);
 
+  const displayHTML = () => {
+      console.log('display HTML...');
+  }
+
   return (
     <ThemeProvider theme={theme}>
         <Wrapper>
         <Header variant='h1'>Milkdown POC test</Header>
-        <Milkdown onChange={onTextChange} value={content} spellcheck={false} />
-          <DataButton variant='contained' color='primary'>Download HTML</DataButton>
+        <Milkdown onChange={onTextChange} value={content} setHTML={setHTML} spellcheck={false} />
+          <DataButton onClick={displayHTML} variant='contained' color='primary'>Download HTML</DataButton>
         </Wrapper>
     </ThemeProvider>
   );
