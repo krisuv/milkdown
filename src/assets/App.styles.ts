@@ -29,3 +29,8 @@ export const DataButton = styled(Button)({
   alignSelf: 'center',
   fontSize: '1rem',
 })
+
+export const HTMLContent = styled(Box)({
+  color: 'white',
+
+})

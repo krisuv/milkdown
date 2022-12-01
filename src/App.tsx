@@ -1,6 +1,6 @@
-import { Button, createMuiTheme, ThemeProvider } from '@mui/material';
+import {Box, Button, createMuiTheme, ThemeProvider } from '@mui/material';
 import { useCallback, useState,useEffect } from 'react';
-import {Header, Wrapper, DataButton } from './assets/App.styles';
+import {Header, Wrapper, DataButton, HTMLContent } from './assets/App.styles';
 import Milkdown from './components/Editor';
 import './styles.css';
 
@@ -25,6 +25,15 @@ const App = (): JSX.Element => {
       console.log(content)
   }, [content]);
 
+  useEffect(() => {
+      try{
+          console.log('final html: ',html);
+      }
+      catch (err) {
+          console.error(err);
+      }
+  }, [html])
+
   const displayHTML = () => {
       console.log('display HTML...');
   }
@@ -34,7 +43,8 @@ const App = (): JSX.Element => {
         <Wrapper>
         <Header variant='h1'>Milkdown POC test</Header>
         <Milkdown onChange={onTextChange} value={content} setHTML={setHTML} spellcheck={false} />
-          <DataButton onClick={displayHTML} variant='contained' color='primary'>Download HTML</DataButton>
+        <DataButton onClick={displayHTML} variant='contained' color='primary'>Download HTML</DataButton>
+        <HTMLContent>{html}</HTMLContent>
         </Wrapper>
     </ThemeProvider>
   );
