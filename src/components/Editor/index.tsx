@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { EditorInfo, ReactEditor, useEditor } from "@milkdown/react";
 // Components
 import { Box } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import { createEditor } from "./createEditor";
+import { getHTML } from '@milkdown/utils';
 
 
 const useStyles = makeStyles({
@@ -30,6 +31,15 @@ const useStyles = makeStyles({
 
 const Milkdown = ({ onChange, value, editable, spellcheck }: {[key: string]: any}): JSX.Element => {
   const classes = useStyles();
+  const [contentHTML, setHTML] = useState<string | undefined>();
+
+  useEffect(() => {
+    setHTML(editor.getInstance()?.action(getHTML()));
+  }, [value]);
+
+  useEffect(() => {
+    console.log(contentHTML);
+  }, [contentHTML]);
 
   const editor = useEditor((root) => {
     return createEditor({
@@ -40,6 +50,10 @@ const Milkdown = ({ onChange, value, editable, spellcheck }: {[key: string]: any
       spellcheck
     });
   });
+
+  // console.log(editor.getDom());
+  // console.log(editor.getInstance()?.action(getHTML()));
+  // console.log(editor);
 
   return (
     <Box className= { classes.root } >

@@ -503,6 +503,22 @@
   dependencies:
     tslib "^2.4.0"
 
+"@milkdown/plugin-clipboard@^6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-clipboard/-/plugin-clipboard-6.5.4.tgz#91fed314a2bec1737d67f2b57b87927c0fe484a9"
+  integrity sha512-87ONhWULGzBC46HnlfNEw6hZJkmtZ5xdPvHrXhh3/Fgk3LFlYGuziQFYbYq3ywjv/uudwYA2a6git7lffK/lDw==
+  dependencies:
+    "@milkdown/utils" "6.5.4"
+    tslib "^2.4.0"
+
+"@milkdown/plugin-cursor@^6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-cursor/-/plugin-cursor-6.5.4.tgz#2ff8aed22fd49ff7618595062791293c45ced50b"
+  integrity sha512-YnDK4RoVpGMzZBmxbY4dpmfkSvSfjKjwbdH0m2LqRkP51HiyX9wHTMOFlAn2oBg+Id1AvStXCG7CsChI+p6q+Q==
+  dependencies:
+    "@milkdown/utils" "6.5.4"
+    tslib "^2.4.0"
+
 "@milkdown/plugin-emoji@^6.5.2":
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-emoji/-/plugin-emoji-6.5.2.tgz#cb2898c3ee1bf7ee1b09c252eacaeae91ee63c99"

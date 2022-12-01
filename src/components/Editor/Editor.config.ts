@@ -23,6 +23,11 @@ export const menuConfig = [
       type: 'button',
       icon: 'my-custom',
       key: 'Undo'
+    },
+    {
+      type: 'button',
+      icon: 'my-custom2',
+      key: 'Redo'
     }
   ],
   [

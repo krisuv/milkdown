@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState,useEffect } from 'react';
 import { Wrapper } from './assets/App.styles';
 import Milkdown from './components/Editor';
 
@@ -9,7 +9,9 @@ const App = (): JSX.Element => {
 
   const onTextChange = useCallback((ev: string) => setContent(ev), []);
 
-  console.log(content);
+  useEffect(() => {
+      console.log(content)
+  }, [content]);
 
   return (
     <Wrapper>

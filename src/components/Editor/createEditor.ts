@@ -14,10 +14,13 @@ import { Config, menu, menuPlugin } from "@milkdown/plugin-menu";
 import { menuConfig } from "./Editor.config";
 import { EditorInfo } from "@milkdown/react";
 import { upload } from '@milkdown/plugin-upload';
+import { cursor } from '@milkdown/plugin-cursor';
 import { history } from '@milkdown/plugin-history';
+import { clipboard } from '@milkdown/plugin-clipboard';
 import { tooltip } from '@milkdown/plugin-tooltip';
 import UndoIcon from '@mui/icons-material/Undo';
 import ReplayIcon from '@mui/icons-material/Replay';
+import RedoIcon from '@mui/icons-material/Redo';
 import {createIcon, changeDefaultIcon} from '../../icons'
 
 console.log((UndoIcon as any).type.render().props.children.props.d);
@@ -37,6 +40,8 @@ export const createEditor = ({
         onChange(markdown);
       });
 
+      console.log(ctx.get);
+
       ctx.set(editorViewOptionsCtx, {
         editable: () => editable
       });
@@ -49,20 +54,23 @@ export const createEditor = ({
 
     })
     .use(nord.override((_, manager) => {
-      const originalGet = manager.getSlice(ThemeIcon);
+      // const originalGet = manager.getSlice(ThemeIcon);
+      //
+      // manager.set(ThemeIcon, (icon) => {
+      //   if(icon === "my-custom"){
+      //     const icon = document.createElement('span');
+      //     // icon.innerHTML = `<svg width="24" height="24"><path d="${(UndoIcon as any).type.render().props.children.props.d}" fill="white" /></svg>`;
+      //       icon.innerHTML = createIcon(ReplayIcon);
+      //     return {
+      //       dom: icon,
+      //       label: 'my icon'
+      //     };
+      //   }
+      //   return originalGet(icon);
+      // });
 
-      manager.set(ThemeIcon, (icon) => {
-        if(icon === "my-custom"){
-          const icon = document.createElement('span');
-          // icon.innerHTML = `<svg width="24" height="24"><path d="${(UndoIcon as any).type.render().props.children.props.d}" fill="white" /></svg>`;
-            icon.innerHTML = createIcon(ReplayIcon);
-          return {
-            dom: icon,
-            label: 'my icon'
-          };
-        }
-        return originalGet(icon);
-      });
+      changeDefaultIcon(UndoIcon, manager, 'my-custom', 'undo the action');
+      changeDefaultIcon(RedoIcon, manager, 'my-custom2', 'redo the action');
     }))
     .use(gfm)
       .use(history)
@@ -74,5 +82,7 @@ export const createEditor = ({
         config: menuConfig as (Config | ((ctx: Ctx) => Config) | undefined)
       })
     )
-    .use(upload);
+    .use(upload)
+      .use(cursor)
+  .use(clipboard);
 };
